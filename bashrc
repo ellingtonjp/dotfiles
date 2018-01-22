@@ -12,3 +12,13 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     OS=linux;;
+    Darwin*)    OS=mac;;
+    CYGWIN*)    OS=cygwin;;
+    MINGW*)     OS=minGw;;
+    *)          OS="UNKNOWN:${unameOut}"
+esac
+export $OS
