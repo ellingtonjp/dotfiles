@@ -1,18 +1,33 @@
 " PLUGINS -------------------------------------------------------------------- {{{
 " --------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
- "Plug 'scrooloose/nerdtree'
   Plug 'altercation/vim-colors-solarized'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  "Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'simeji/winresizer'
 call plug#end()
 " }}}
 
+" Powerline
 let g:airline_powerline_fonts = 1
+
+" Syntastic
+" There is a bug here where the following are appended to 'statusline' every
+" time this file is saved
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " BASIC SETTINGS ------------------------------------------------------------- {{{
 " --------------------------------------------------------------------------------
@@ -31,7 +46,12 @@ set cursorline
 set laststatus=2
 set showbreak=↪
 set virtualedit=all
-silent !mkdir -p ~/.vim/.temp
+
+" Backups
+let s:vim_cache = expand('$HOME/.vim/backups')
+if filewritable(s:vim_cache) == 0 && exists("*mkdir")
+  call mkdir(s:vim_cache, "p", 0700)
+endif
 set directory=~/.vim/.temp/
 
 " TABS
@@ -68,25 +88,33 @@ nnoremap <leader>es :split ~/.vimrc<CR>
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>et :tabnew ~/.vimrc<CR>
 
+" Figure out how to easily quit/write
+nnoremap <leader>fw :w<CR>
+nnoremap <leader>fq :q<CR>
+
+" nnoremap <leader>df :q!<CR>
+" nnoremap <leader>da :qall<CR>
+" nnoremap <leader>fs :w!<CR>
+
 " Windows / buffers
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <leader>- <C-w>s
-nnoremap <leader>\| <C-w>v<C-w>l
+nnoremap <leader>sk <C-w>s <C-w>k
+nnoremap <leader>sj <C-w>s <C-w>j
+nnoremap <leader>sl <C-w>v<C-w>l
+nnoremap <leader>sh <C-w>v<C-w>h
+nnoremap <leader>= <C-w>=
 
-" Toggle paste
-noremap <leader>p :set paste!<CR>
-
-" Toggle line numbers
-noremap <leader>n :set number!<CR>
+" Repeatable window resizing
+nnoremap <silent> <Plug>IncreaseWindowSize :vertical resize +10<CR> :call repeat#set("\<Plug>IncreaseWindowSize")<CR>
+nmap <leader>] <Plug>IncreaseWindowSize
+nnoremap <silent> <Plug>DecreaseWindowSize :vertical resize -10<CR> :call repeat#set("\<Plug>DecreaseWindowSize")<CR>
+nmap <leader>[ <Plug>DecreaseWindowSize
 
 " Turn off hlsearch
 noremap <leader>l <C-l>:nohlsearch<CR>
-
-" Toggle wrap
-noremap <leader>w :set wrap!<CR>
 
 " Remove whitespace
 nnoremap <leader>rw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>

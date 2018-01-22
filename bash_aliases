@@ -1,6 +1,5 @@
-alias ls="ls"
-alias phone="ssh phone-dev"
-alias dev="ssh dev109"
+# Easy bashrc sourcing
+alias sbrc='source ~/.bashrc'
 
 # Colors
 alias ls='ls --color=auto'
@@ -16,10 +15,8 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Easy bashrc sourcing
-alias sbrc='source ~/.bashrc'
-
 # Moving around
+alias cddf='cd ~/.files'
 alias cda='cd /archive/jellingt'
 alias cdco='cd /archive/jellingt/co'
 alias tb='cd /archive/jellingt/co/router/testbed/testbed_mc'
@@ -46,3 +43,6 @@ alias jws='cd /var/local/meraki/jenkins_slave/workspace/phone/E2E-DashLib/'
 
 # McTester
 alias e2e='be rake -f rakefile_v2.rb'
+
+# Vim
+alias vrc='vim ~/.vimrc'
