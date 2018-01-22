@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-syntastic/syntastic'
   Plug 'simeji/winresizer'
 call plug#end()
-" }}}
 
 " Powerline
 let g:airline_powerline_fonts = 1
@@ -28,6 +27,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" }}}
 
 " BASIC SETTINGS ------------------------------------------------------------- {{{
 " --------------------------------------------------------------------------------
@@ -48,11 +48,16 @@ set showbreak=↪
 set virtualedit=all
 
 " Backups
-let s:vim_cache = expand('$HOME/.vim/backups')
-if filewritable(s:vim_cache) == 0 && exists("*mkdir")
-  call mkdir(s:vim_cache, "p", 0700)
+let s:vim_swp = expand('~/.vim/swap//')
+if filewritable(s:vim_swp) == 0 && exists("*mkdir")
+  call mkdir(s:vim_swp, "p", 0700)
 endif
-set directory=~/.vim/.temp/
+let s:vim_bkp = expand('~/.vim/backups//')
+if filewritable(s:vim_bkp) == 0 && exists("*mkdir")
+  call mkdir(s:vim_bkp, "p", 0700)
+endif
+set directory=~/.vim/swap
+set backupdir=~/.vim/backups
 
 " TABS
 set expandtab
@@ -80,8 +85,6 @@ match ExtraWhitespace /\s\+$/
 
 " MAPPINGS ------------------------------------------------------------------- {{{
 " --------------------------------------------------------------------------------
-nnoremap <cr> za
-
 " Easy vimrc edit
 nnoremap <leader>ew :e ~/.vimrc<CR>
 nnoremap <leader>es :split ~/.vimrc<CR>
@@ -106,6 +109,13 @@ nnoremap <leader>sj <C-w>s <C-w>j
 nnoremap <leader>sl <C-w>v<C-w>l
 nnoremap <leader>sh <C-w>v<C-w>h
 nnoremap <leader>= <C-w>=
+
+" Folds
+nnoremap <cr> za
+nnoremap <S-cr> za
+nnoremap <tab> zj
+nnoremap <S-tab> zk
+
 
 " Repeatable window resizing
 nnoremap <silent> <Plug>IncreaseWindowSize :vertical resize +10<CR> :call repeat#set("\<Plug>IncreaseWindowSize")<CR>

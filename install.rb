@@ -1,20 +1,12 @@
 #!/usr/bin/env ruby
 
-def print_options
-  puts "You have the option to:"
-  puts "  [1] Overwrite all existing dotfiles (careful!)"
-  puts "  [2] Create *_USER dotfiles which are sourced by the original"
-  puts "  [3] Ask for each dotfile"
-  puts ""
-  puts "Please select 1, 2, or 3:"
-end
-
 def prompt(*args)
   print(*args)
+  gets.strip
 end
 
 
-$excluded_files = ['.', '..', '.git', 'install.rb', 'README.md', 'resources']
+$excluded_files = ['.', '..', '.git', '.gitignore', 'install.rb', 'README.md', 'resources']
 
 def start
   backup = true
