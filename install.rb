@@ -10,13 +10,11 @@ def print_options
 end
 
 def prompt(*args)
-  print *args
-  choice = gets.strip
+  print(*args)
 end
 
 
-$excluded_files = ['.', '..', '.git', 'install.rb', 'README.md']
-$dircolors_files = ['dir_colors_dark', 'dir_colors_light']
+$excluded_files = ['.', '..', '.git', 'install.rb', 'README.md', 'resources']
 
 def start
   backup = true
