@@ -2,6 +2,6 @@
 
 ## Install
 ```
-git clone https://github.com/ellingtonjp/dotfiles ~/.files
+git clone https://jellingt@git.ikarem.io/jellingt/dotfiles.git
 ./install.rb
 ```
