@@ -7,6 +7,7 @@ end
 
 
 $excluded_files = ['.', '..', '.git', '.gitignore', 'install.rb', 'README.md', 'resources']
+$user = `whoami`.strip
 
 def start
   backup = true
@@ -24,7 +25,7 @@ def start
 
     puts "File #{target} exists" if File.exist? target
     puts '  1. Overwrite'
-    puts "  2. Append _USER (ie #{target}_USER)"
+    puts "  2. Append _#{$user} (ie #{target}_#{$user})"
     puts "  3. Choose new name"
     puts "  4. Skip"
     puts "  5. Skip all"
@@ -34,7 +35,7 @@ def start
 
     case action
     when 1 then
-    when 2 then target += '_USER'
+    when 2 then target += "_#{$user}"
     when 3 then target = File.expand_path('~/' + prompt('New name: '))
     when 4 then next
     when 5 then break
