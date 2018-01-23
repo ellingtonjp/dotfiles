@@ -6,9 +6,6 @@ Host dev*
 
 Host sdg0 dal0 fra0 syd0
     Hostname %h.meraki.com
-    ControlMaster auto
-    ControlPath ~/.ssh/sockets/%r@%h-%p
-    ControlPersist 1h
     User jellingt
 
 Host phone phone-dev phone-spare n* dal1* dal2* dal3* sdg1* sdg2* sdg3* mun1* fra1* sf*
