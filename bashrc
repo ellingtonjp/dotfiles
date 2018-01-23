@@ -1,5 +1,3 @@
-source ~/.bash_aliases
-
 export PS1="\[\e[93m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\]:\[\e[m\]\w\[\e[m\]\[\e[32m\]\n$\[\e[m\] "
 export PATH="/usr/local/opt/swig@2/bin:$PATH" # PJSip
 export ANDROID_NDK_ROOT=/Users/jonathane/dev/lib/android-ndk-r10e # Android (Dialer)
@@ -22,3 +20,5 @@ case "${unameOut}" in
     *)          OS="UNKNOWN:${unameOut}"
 esac
 export $OS
+
+source ~/.bash_aliases
