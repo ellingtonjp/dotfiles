@@ -41,7 +41,8 @@ def start
     when 5 then break
     end
 
-    `cp -L #{target} #{backup_dir}` if backup && File.exist?(target)
+    # TODO: bug for directories -- puts directory inside target if it already exists
+    `cp -Lr #{target} #{backup_dir}` if backup && File.exist?(target)
 
     puts "#{dotfile} --> #{target}"
     `ln -s -f #{File.expand_path(dotfile)} #{target}`
