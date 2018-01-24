@@ -1,6 +1,7 @@
 # Do not put local ssh stuff into repo
-id_rsa
-id_rsa.pub
-ssh_auth_sock
-known_hosts
-authorized_keys
+ssh/id_rsa
+ssh/id_rsa.pub
+ssh/ssh_auth_sock
+ssh/known_hosts
+ssh/authorized_keys
+ssh/sockets/*
