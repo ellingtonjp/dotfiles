@@ -7,7 +7,8 @@ if [ "$OS" == "mac" ]; then
 else
   color_flag="--color=auto"
 fi
-alias ls="ls $color_flag"
+ls_default="--group-directories-first"
+alias ls="ls $color_flag $ls_default"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 
@@ -16,9 +17,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # ls
+alias l='ls -lA'
 alias ll='ls -l'
 alias la='ls -A'
-alias l='ls -CF'
 
 # Moving around
 alias cddf='cd ~/.files'

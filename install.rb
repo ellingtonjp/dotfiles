@@ -10,10 +10,8 @@ $excluded_files = ['.', '..', '.git', '.gitignore', 'install.rb', 'README.md', '
 $user = `whoami`.strip
 
 def start
-  backup = true
-  backup = prompt('Backup dotfiles?[y] ') until ['y', 'n'].include? backup
-  backup_dir = "~/.files_backup"
-  `mkdir -p #{backup_dir}`
+  backup_dotfiles unless prompt('Backup dotfiles? [y]') == 'n'
+  set_ssh_perms unless prompt('Set ssh and ssh/sockets permissions to 700? (recommended) [y]') == 'n'
 
   Dir.foreach('.') do |dotfile|
     next if $excluded_files.include? dotfile
@@ -49,10 +47,22 @@ def start
     puts
   end
 
-  if prompt('Install vim plugins?[y] ') == 'y'
-    `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > /dev/null 2>&1`
-    `vim +PlugInstall +qall > /dev/null 2>&1`
-  end
+  install_vim_plugins unless prompt('Install vim plugins?[y] ') == 'n'
+end
+
+def set_ssh_perms
+  File.chmod(0700, './ssh/sockets')
+  File.chmod(0700, './ssh')
+end
+
+def backup_dotfiles
+  backup_dir = "~/.files_backup"
+  `mkdir -p #{backup_dir}` 
+end
+
+def install_vim_plugins
+  `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > /dev/null 2>&1`
+  `vim +PlugInstall +qall > /dev/null 2>&1`
 end
 
 def install_dotfiles(dotfiles, overwrite = false)
