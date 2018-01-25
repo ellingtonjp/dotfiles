@@ -31,6 +31,7 @@ alias tbdl='cd /archive/jellingt//co/router/testbed/testbed_shared/lib/dashboard
 alias cdfw="cd /archive/jellingt/phone_firmware/"
 alias cddn="cd /archive/jellingt/phone_firmware/android-j/packages/apps/DroidNode/src/com/meraki/droidnode/"
 alias cdcf="cd /archive/jellingt/phone_firmware/android-j/packages/apps/DroidNode/src/com/meraki/droidnode/scheduler/tasks"
+alias cdmc="cd /archive/jellingt/phone_firmware/android-j/packages/apps/DroidNode/libs/libmeraki/src/main/java/com/meraki/libmeraki/config"
 
 # tmux
 alias tm='tmux -CC'
