@@ -21,4 +21,5 @@ case "${unameOut}" in
 esac
 export $OS
 
-source ~/.bash_aliases
+FILE=~/.bash_aliases && test -f $FILE && source $FILE
+FILE=~/.less_colors && test -f $FILE && source $FILE
