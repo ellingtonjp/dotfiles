@@ -33,6 +33,11 @@ alias cddn="cd /archive/jellingt/phone_firmware/android-j/packages/apps/DroidNod
 alias cdcf="cd /archive/jellingt/phone_firmware/android-j/packages/apps/DroidNode/src/com/meraki/droidnode/scheduler/tasks"
 alias cdmc="cd /archive/jellingt/phone_firmware/android-j/packages/apps/DroidNode/libs/libmeraki/src/main/java/com/meraki/libmeraki/config"
 
+# SSH
+for h in sf111 dev109 phone.meraki.com; do
+  alias $h="ssh $h"
+done
+
 # tmux
 alias tm='tmux -CC'
 alias tma='tmux -CC attach'
