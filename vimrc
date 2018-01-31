@@ -24,7 +24,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " }}}
@@ -46,6 +46,7 @@ set cursorline
 set laststatus=2
 set showbreak=↪
 set virtualedit=all
+set tags=tags;/
 
 " Backups
 let s:vim_swp = expand('~/.vim/swap//')
@@ -85,6 +86,8 @@ match ExtraWhitespace /\s\+$/
 
 " MAPPINGS ------------------------------------------------------------------- {{{
 " --------------------------------------------------------------------------------
+
+" Basic {{{
 " Easy vimrc edit
 nnoremap <leader>ew :e ~/.vimrc<CR>
 nnoremap <leader>es :split ~/.vimrc<CR>
@@ -116,6 +119,25 @@ nnoremap <S-cr> za
 nnoremap <tab> zj
 nnoremap <S-tab> zk
 
+" Toggles (note: lots of toggles are in 'unimpaired', try not to duplicate
+" Redraw the screen and toggle hlsearch
+nnoremap <leader>hl <C-l>:nohlsearch<CR>
+
+
+" ctags
+nnoremap <leader>tk <C-w>s <C-w>k
+nnoremap <leader>tj <C-w>s <C-w>j
+nnoremap <leader>tl <C-w>v<C-w>l
+nnoremap <leader>th <C-w>v<C-w>h
+
+nnoremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+function! TagSplit()
+  tab split
+  exec "tag ".expand("<cword>")
+endfunction
+
 
 " Repeatable window resizing
 nnoremap <silent> <Plug>IncreaseWindowSize :vertical resize +10<CR> :call repeat#set("\<Plug>IncreaseWindowSize")<CR>
@@ -123,11 +145,15 @@ nmap <leader>] <Plug>IncreaseWindowSize
 nnoremap <silent> <Plug>DecreaseWindowSize :vertical resize -10<CR> :call repeat#set("\<Plug>DecreaseWindowSize")<CR>
 nmap <leader>[ <Plug>DecreaseWindowSize
 
-" Turn off hlsearch
-noremap <leader>l <C-l>:nohlsearch<CR>
-
 " Remove whitespace
 nnoremap <leader>rw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" }}}
+
+" Plugins {{{
+
+nnoremap <Leader>cc :SyntasticCheck<cr>
+
+"}}}
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -149,6 +175,9 @@ augroup filetype_text
   autocmd!
   autocmd FileType text setlocal spell
 augroup END
+
+autocmd BufRead,BufNewFile *.thor set filetype=ruby
+
 " }}}
 
 " ABBREVIATIONS -------------------------------------------------------------- {{{

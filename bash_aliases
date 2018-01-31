@@ -26,6 +26,7 @@ alias cddf='cd ~/.files'
 alias cda='cd /archive/jellingt'
 alias cdco='cd /archive/jellingt/co'
 alias tb='cd /archive/jellingt/co/router/testbed/testbed_mc'
+alias e2e='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e'
 alias tbs='cd /archive/jellingt/co/router/testbed/testbed_shared/lib'
 alias tbdl='cd /archive/jellingt//co/router/testbed/testbed_shared/lib/dashboard'
 alias cdfw="cd /archive/jellingt/phone_firmware/"
@@ -52,9 +53,6 @@ alias brcf='be rubocop -c "/archive/jellingt/co/router/testbed/.rubocop.yml" --a
 # Jenkins
 alias jsu='sudo su jenkins'
 alias jws='cd /var/local/meraki/jenkins_slave/workspace/phone/E2E-DashLib/'
-
-# McTester
-alias e2e='be rake -f rakefile_v2.rb'
 
 # Vim
 alias vrc='vim ~/.vimrc'

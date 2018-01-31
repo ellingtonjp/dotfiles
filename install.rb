@@ -10,7 +10,7 @@ $excluded_files = ['.', '..', '.git', '.gitignore', 'install.rb', 'README.md', '
 $user = `whoami`.strip
 
 def start
-  backup_dotfiles unless prompt('Backup dotfiles? [y]') == 'n'
+  backup = backup_dotfiles unless prompt('Backup dotfiles? [y]') == 'n'
   set_ssh_perms unless prompt('Set ssh and ssh/sockets permissions to 700? (recommended) [y]') == 'n'
 
   Dir.foreach('.') do |dotfile|
@@ -58,6 +58,7 @@ end
 def backup_dotfiles
   backup_dir = "~/.files_backup"
   `mkdir -p #{backup_dir}` 
+  return true
 end
 
 def install_vim_plugins
