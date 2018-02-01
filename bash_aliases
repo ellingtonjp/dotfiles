@@ -2,13 +2,23 @@
 alias sbrc='source ~/.bashrc'
 
 # Colors
+#if [ "$OS" == "mac" ]; then
+#  color_flag="-G"
+#else
+#  color_flag="--color=auto"
+#fi
+#ls_default="--group-directories-first"
+#alias ls="ls $color_flag $ls_default"
 if [ "$OS" == "mac" ]; then
-  color_flag="-G"
+  if [ ! $(command -v gls) ]; then
+    echo "Cannot alias 'ls'. Install coreutils! brew install coreutils"
+  else
+    ls='gls'
+  fi
 else
-  color_flag="--color=auto"
+  $ls='ls'
 fi
-ls_default="--group-directories-first"
-alias ls="ls $color_flag $ls_default"
+alias ls="${ls} --color=auto --group-directories-first"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 
