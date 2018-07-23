@@ -9,24 +9,19 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
+  Plug 'tpope/vim-abolish'
   Plug 'vim-syntastic/syntastic'
   Plug 'simeji/winresizer'
+  Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 
 " Powerline
 let g:airline_powerline_fonts = 1
 
-" Syntastic
-" There is a bug here where the following are appended to 'statusline' every
-" time this file is saved
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_args = '-c /archive/jellingt/co/router/testbed/.rubocop.yml'
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+
 " }}}
 
 " BASIC SETTINGS ------------------------------------------------------------- {{{
