@@ -1,9 +1,7 @@
-# Source/edit bashrc
-alias sbrc='source ~/.bashrc'
 alias vrc='vim ~/.vimrc'
 
 ls='ls'
-if [ "$HOSTNAME" == "jonathan-ellington-mbp" ]; then
+if [ "$(hostname)" = "jonathan-ellington-mbp" ]; then
   ls='gls'
 fi
 
@@ -19,13 +17,13 @@ alias gg='git grep'
 # Moving around
 alias cdf='cd ~/.files'
 
-if [[ $HOSTNAME = *".meraki.com"* ]]; then
+if [[ "$(hostname)" = *".meraki.com"* ]]; then
   # Pushing/pulling gerrit
   alias gpull='git pull --rebase origin master'
   alias gpush='git push origin HEAD:refs/for/master'
 fi
 
-if [ "$HOSTNAME" == "sf111.meraki.com" ]; then
+if [ "$(hostname)" = "sf111.meraki.com" ]; then
   # moving around
   alias cda='cd /archive/jellingt'
   alias cdco='cd /archive/jellingt/co'
@@ -58,7 +56,7 @@ if [ "$HOSTNAME" == "sf111.meraki.com" ]; then
   alias java6='/home/jellingt/.local/bin/jdk1.6.0_45/bin'
 fi
 
-if [ "$HOSTNAME" == "sf104.meraki.com" ]; then
+if [ "$(hostname)" = "sf104.meraki.com" ]; then
   alias cdfw="cd /home/jellingt/android/watchtower"
   alias cddn="cd /home/jellingt/android/watchtower/android-j/packages/apps/DroidNode/src/com/meraki/droidnode/"
   alias cdcf="cd /home/jellingt/android/watchtower/android-j/packages/apps/DroidNode/src/com/meraki/droidnode/scheduler/tasks"

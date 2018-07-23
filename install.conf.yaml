@@ -12,7 +12,7 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_aliases: bash/aliases.bash
+    ~/.aliases: aliases.sh
     ~/.bash_profile: bash/profile.bash
     ~/.bashrc: bash/rc.bash
     ~/.zshrc: zsh/rc.zsh
