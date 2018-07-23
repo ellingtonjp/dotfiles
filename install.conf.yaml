@@ -15,6 +15,7 @@
     ~/.bash_aliases: bash/aliases.bash
     ~/.bash_profile: bash/profile.bash
     ~/.bashrc: bash/rc.bash
+    ~/.zshrc: zsh/rc.zsh
     ~/.gitconfig: git/gitconfig
     ~/.tmux.conf: tmux/tmux.conf
     ~/.vimrc: vim/vimrc
