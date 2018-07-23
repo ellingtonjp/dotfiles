@@ -17,5 +17,11 @@
   br = branch
   di = diff
   dc = diff --cached
+  gpull = pull --rebase origin master
+  gpush = push origin HEAD:refs/for/master
+  ca = commit -a --amend -C HEAD
+  mc = log --all --grep 'testbed_mc'
 [color]
   ui = auto
+[core]
+	excludesfile = "~/.gitignore"
