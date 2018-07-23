@@ -16,10 +16,8 @@ alias la='ls -A'
 # Grepping
 alias gg='git grep'
 
-# SSH
-for h in sf111 dev109 sf104; do
-  alias $h="ssh $h"
-done
+# Moving around
+alias cdf='cd ~/.files'
 
 if [[ $HOSTNAME = *".meraki.com"* ]]; then
   # Pushing/pulling gerrit
@@ -66,3 +64,9 @@ if [ "$HOSTNAME" == "sf104.meraki.com" ]; then
   alias cdcf="cd /home/jellingt/android/watchtower/android-j/packages/apps/DroidNode/src/com/meraki/droidnode/scheduler/tasks"
   alias cdmc="cd /home/jellingt/android/watchtower/android-j/packages/apps/DroidNode/libs/libmeraki/src/main/java/com/meraki/libmeraki/config"
 fi
+
+# SSH
+for h in sf111 dev109 sf104; do
+  alias $h="ssh $h"
+done
+
