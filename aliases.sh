@@ -47,7 +47,7 @@ if [ "$(hostname)" = "sf111.meraki.com" ]; then
   # McTester
   alias testmin='be rake e2e:test:minimal mode=dev'
   alias rmvling='tb ; be rake utilities:remove_lingering'
-  alias rmports="ls | grep -P "^[0-9]{4}$" | sudo xargs rm"
+  alias rmports='ls | grep -P "^[0-9]{4}$" | sudo xargs rm'
   alias psadb='ps aux | grep adb'
 
   # testbed
