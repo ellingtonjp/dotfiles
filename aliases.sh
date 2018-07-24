@@ -1,3 +1,5 @@
+alias be='bundle exec'
+
 alias vrc='vim ~/.vimrc'
 
 ls='ls'
