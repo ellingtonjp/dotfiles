@@ -65,7 +65,7 @@ ZSH_THEME="cypher"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  vi-mode git
+  vi-mode git colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
