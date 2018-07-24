@@ -70,6 +70,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# ZSH highlighting must be the last thing sourced
+source $DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Get user aliases
 source ~/.aliases
 
