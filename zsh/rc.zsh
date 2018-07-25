@@ -15,6 +15,8 @@ source ~/.aliases # this will override oh-my-zsh aliases
 
 if [[ "$(hostname)" = "sf104.meraki.com" ]]; then
   export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45/bin # used for firmware
+  export PATH="$JAVA_HOME:$PATH"
+  source ~/perl5/perlbrew/etc/bashrc
 fi
 
 source $DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # must be last thing sourced
