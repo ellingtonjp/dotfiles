@@ -18,4 +18,3 @@ if [[ "$(hostname)" = "sf104.meraki.com" ]]; then
 fi
 
 source $DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # must be last thing sourced
-source $DOTFILES/check_for_changes.sh
