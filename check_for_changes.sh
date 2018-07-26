@@ -1,7 +1,7 @@
 function _yes() {
   echo $fg[red]$1
   read line
-  if [[ "$line" == Y* ]] || [[ "$line" == y* ]] || [ -z "$line" ]; then
+  if [[ "$line" == Y* ]] || [[ "$line" == y* ]]; then
     return 0
   else
     return 1
