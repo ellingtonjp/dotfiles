@@ -8,13 +8,14 @@ function _yes() {
   fi
 }
 
+cd $DOTFILES && git fetch
+
 UPSTREAM=${1:-'@{u}'}
 LOCAL=$(cd $DOTFILES && git rev-parse @{0})
 REMOTE=$(cd $DOTFILES && git rev-parse "$UPSTREAM")
 BASE=$(cd $DOTFILES && git merge-base @{0} "$UPSTREAM")
 
 echo
-cd $DOTFILES && git fetch
 if ! (cd $DOTFILES && git diff-index --quiet HEAD --); then
   echo $fg[red]"Dotfiles: uncommitted local changes."
 elif [ $LOCAL = $REMOTE ]; then
