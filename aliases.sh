@@ -1,6 +1,10 @@
 alias be='bundle exec'
 
-alias vrc='vim ~/.vimrc'
+alias szrc='source ~/.zshrc'
+alias sbrc='source ~/.bashrc'
+alias vali='vim ~/.aliases'
+alias vvrc='vim ~/.vimrc'
+alias vzrc='vim ~/.zshrc'
 
 ls='ls'
 if [ "$(hostname)" = "jonathan-ellington-mbp" ]; then
@@ -28,13 +32,22 @@ fi
 if [ "$(hostname)" = "sf111.meraki.com" ]; then
   # moving around
   alias cda='cd /archive/jellingt'
-  alias cdco='cd /archive/jellingt/co'
-  alias tb='cd /archive/jellingt/co/router/testbed/testbed_mc'
-  alias e2e='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e'
-  alias tbs='cd /archive/jellingt/co/router/testbed/testbed_shared/lib'
-  alias tbdl='cd /archive/jellingt//co/router/testbed/testbed_shared/lib/dashboard'
+  alias cdad='cd /archive/dialer'
+
   alias cdci="cd /archive/jellingt/co/router/scripts/ci"
   alias cdlocks="cd /var/local/meraki/mctester"
+
+  alias tb='cd /archive/jellingt/co/router/testbed/testbed_mc'
+  alias tbs='cd /archive/jellingt/co/router/testbed/testbed_mc/scripts'
+  alias tbe='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e'
+  alias tbel='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e/lib'
+  alias tbec='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e/config'
+  alias tbet='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e/tests'
+  alias tbeg='cd /archive/jellingt/co/router/testbed/testbed_mc/e2e/logs'
+  alias tbl='cd /archive/jellingt/co/router/testbed/testbed_shared/lib'
+  alias tbdl='cd /archive/jellingt//co/router/testbed/testbed_shared/lib/dashboard'
+
+  alias iphones='bundle exec pry -I /archive/jellingt/co/router/testbed/testbed_mc/scripts -r "interactive_phones.rb"'
 
   # Jenkins
   alias jsu='sudo su jenkins'
