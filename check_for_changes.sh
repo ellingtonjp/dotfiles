@@ -20,15 +20,15 @@ if ! (cd $DOTFILES && git diff-index --quiet HEAD --); then
 elif [ $LOCAL = $REMOTE ]; then
   echo $fg[green]"Dotfiles: up-to-date"
 elif [ $LOCAL = $BASE ]; then
-  if (_yes "Dotfiles: upstream changes. Rebase?"); then
+  if (_yes "Dotfiles: upstream changes. Rebase? [y/N]"); then
     cd $DOTFILES && git pull --rebase
   fi
 elif [ $REMOTE = $BASE ]; then
-  if (_yes "Dotfiles: local changes haven't been pushed. Push?"); then
+  if (_yes "Dotfiles: local changes haven't been pushed. Push? [y/N]"); then
     cd $DOTFILES && git push
   fi
 else
-  if (_yes "Dotfiles: upstream and local have diverged. Rebase then push?"); then
+  if (_yes "Dotfiles: upstream and local have diverged. Rebase then push? [y/N]"); then
     cd $DOTFILES && git pull --rebase && git push
   fi
 fi
