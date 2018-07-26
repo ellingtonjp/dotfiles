@@ -23,6 +23,11 @@ alias gg='git grep'
 # Moving around
 alias cdf='cd ~/.files'
 
+if [ "$(hostname)" = "jonathan-ellington-mbp" ]; then
+  alias cdm='cd ~/meraki'
+  alias cdbs='cd ~/meraki/broadsoft'
+fi
+
 if [[ "$(hostname)" = *".meraki.com"* ]]; then
   # Pushing/pulling gerrit
   alias gpull='git pull --rebase origin master'
