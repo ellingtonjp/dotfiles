@@ -4,10 +4,8 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-
-- shell:
-    - [mkdir -p ~/.vim/autoload && cp vim/vim-plug/plug.vim ~/.vim/autoload/, Installing vim-plug]
-    - [vim +PlugInstall +qall > /dev/null 2>&1, Installing plugins]
+    - [source zsh/zgen/zgen.zsh; zgen reset, Initializing zgen]
+    - [mkdir -p ~/.vim/autoload && cp vim/vim-plug/plug.vim ~/.vim/autoload/ && vim +PlugInstall +qall, Installing vim plugins]
 
 - clean: ['~']
 
@@ -16,7 +14,6 @@
     ~/.bash_profile: bash/profile.bash
     ~/.bashrc: bash/rc.bash
     ~/.zshrc: zsh/rc.zsh
-    ~/.zlogin: zsh/login.zsh
     ~/.gitconfig: git/gitconfig
     ~/.tmux.conf: tmux/tmux.conf
     ~/.vimrc: vim/vimrc

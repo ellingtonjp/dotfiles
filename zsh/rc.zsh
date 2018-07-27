@@ -1,20 +1,34 @@
-export DOTFILES=$HOME/.files # path to dotfiles installation
-export ZSH=$DOTFILES/zsh/oh-my-zsh # path ot oh-my-zsh installation
+export DOTFILES=$HOME/.files
 
-ZSH_THEME="cypher"
+export ZGEN_DIR=$DOTFILES/zsh/zgen
+ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+source "${DOTFILES}/zsh/zgen/zgen.zsh"
 
-ENABLE_CORRECTION="true" # suggest corrections for commands not found
+if ! zgen saved; then
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/vi-mode
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh themes/cypher
 
-plugins=( vi-mode git colored-man-pages )
+  zgen load zlsun/solarized-man
+  zgen load djui/alias-tips
+  zgen load johnhamelink/rvm-zsh
+  zgen load hcgraf/zsh-sudo
 
-source $ZSH/oh-my-zsh.sh
+  zgen load zsh-users/zsh-autosuggestions
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=11'
 
-source ~/.aliases # this will override oh-my-zsh aliases
+  zgen load zsh-users/zsh-completions src
+  zgen load hlissner/zsh-autopair
+  zgen load zsh-users/zsh-syntax-highlighting
+
+  zgen save
+fi
+
+source ~/.aliases
 
 if [[ "$(hostname)" = "sf104.meraki.com" ]]; then
-  export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45/bin # used for firmware
+  export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45/bin
   export PATH="$JAVA_HOME:$PATH"
   source ~/perl5/perlbrew/etc/bashrc
 fi
-
-source $DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # must be last thing sourced
