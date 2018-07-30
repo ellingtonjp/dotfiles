@@ -4,7 +4,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [source zsh/zgen/zgen.zsh; zgen reset, Initializing zgen]
+    - [zsh -c 'source zsh/zgen/zgen.zsh && zgen reset', Initializing zgen]
     - [mkdir -p ~/.vim/autoload && cp vim/vim-plug/plug.vim ~/.vim/autoload/ && vim +PlugInstall +qall, Installing vim plugins]
 
 - clean: ['~']
