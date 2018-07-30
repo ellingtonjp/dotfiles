@@ -16,7 +16,6 @@ if ! zgen saved; then
   zgen load hcgraf/zsh-sudo
 
   zgen load zsh-users/zsh-autosuggestions
-  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=11'
 
   zgen load zsh-users/zsh-completions src
   zgen load hlissner/zsh-autopair
@@ -24,6 +23,8 @@ if ! zgen saved; then
 
   zgen save
 fi
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=11'
 
 source ~/.aliases
 
