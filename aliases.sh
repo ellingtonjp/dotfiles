@@ -93,6 +93,6 @@ function _git_rebase_other_branch() {
 alias grbo=_git_rebase_other_branch
 
 # SSH
-for h in sf111 dev109 sf104; do
+for h in sf111 dev122 sf104; do
   alias $h="ssh $h"
 done
