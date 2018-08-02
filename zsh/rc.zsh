@@ -14,9 +14,7 @@ if ! zgen saved; then
   zgen load djui/alias-tips
   zgen load johnhamelink/rvm-zsh
   zgen load hcgraf/zsh-sudo
-
   zgen load zsh-users/zsh-autosuggestions
-
   zgen load zsh-users/zsh-completions src
   zgen load hlissner/zsh-autopair
   zgen load zsh-users/zsh-syntax-highlighting

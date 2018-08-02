@@ -83,8 +83,16 @@ if [ "$(hostname)" = "sf104.meraki.com" ]; then
   alias cdmc="cd /home/jellingt/android/watchtower/android-j/packages/apps/DroidNode/libs/libmeraki/src/main/java/com/meraki/libmeraki/config"
 fi
 
+function _git_rebase_other_branch() {
+  curr_branch=$(git rev-parse --abbrev-ref HEAD)
+  git checkout $1
+  git pull --rebase origin master
+  git checkout $curr_branch
+}
+
+alias grbo=_git_rebase_other_branch
+
 # SSH
 for h in sf111 dev109 sf104; do
   alias $h="ssh $h"
 done
-
