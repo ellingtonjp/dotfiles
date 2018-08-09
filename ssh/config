@@ -1,11 +1,17 @@
 Host *
-    User jellingt
-    ForwardAgent yes
+  User jellingt
+  ForwardAgent yes
 
-Host dev* sf* fsdg0 dal0 fra0 syd0
-    HostName %h.meraki.com
-    ForwardAgent yes
+Host sf* dev*
+  HostName %h.meraki.com
 
 Host phone phone-dev phone-spare n* dal1* dal2* dal3* sdg1* sdg2* sdg3* mun1* fra1*
-    Hostname %h.meraki.com
-    ProxyCommand ssh sdg0 -W %h:%p
+  Hostname %h.meraki.com
+  ProxyJump sdg0
+
+Host sdg0 dal0 fra0 syd0 sin0
+  Hostname %h.meraki.com
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%h:%p
+  ControlPersist 1h
+
